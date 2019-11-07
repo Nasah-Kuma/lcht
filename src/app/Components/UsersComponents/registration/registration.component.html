@@ -10,7 +10,7 @@
             formControlName = "username" required class = "form-control"><br>
             <label>Password<span class = "text-danger">*</span></label><br>
             <input 
-            type = "text" 
+            type = "password" 
             placeholder="password" 
             formControlName = "password" class = "form-control"><br>
             <label>Contact</label><br>
@@ -24,10 +24,13 @@
             placeholder="email" 
             formControlName = "email" class="form-control"><br>
             <label>Academic Level<span class = "text-danger">*</span></label><br>
-            <input 
-            type = "text" 
-            placeholder="academicLevel" 
-            formControlName = "academicLevel" class = "form-control"><br>
+            <select class = "form-control" formControlName = "academicLevel">
+              <option value = "Form 5">Form 5</option>
+              <option value = "UpperSixth">UpperSixth</option>
+              <option value = "LowerSixth">LowerSixth</option>
+              <option value = "200">200</option>
+              <option value = "300">300</option>
+            </select><br>
             <button class = "btn btn-secondary form-control">register</button>
           </form>
     </div>

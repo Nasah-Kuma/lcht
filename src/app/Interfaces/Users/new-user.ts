@@ -1,11 +1,16 @@
-export interface NewUser {
+export interface Student {
     username: string;
     password: string;
-    alias: string;
-    firstName: string;
-    lastName: string;
-    address: string;
-    phone: number;
-    dateOfBirth: string;
+    phone?: number;
+    email?:string;
     id?: string;
+    academicLevel: string;
+}
+
+export interface Developer{
+
+}
+
+export interface BusinessMan{
+    
 }

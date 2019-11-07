@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NewUser } from 'src/app/Interfaces/Users/new-user';
+import { Student, Developer, BusinessMan } from 'src/app/Interfaces/Users/new-user';
 import { LoginService } from 'src/app/Services/UserServices/login.service';
 import { FormGroup, FormControl, FormBuilder} from '@angular/forms';
 import { NgForm} from '@angular/forms';
-
+import { RegisterService} from '../../../Services/UserServices/register.service';
 
 @Component({
   selector: 'app-registration',
@@ -13,7 +13,9 @@ import { NgForm} from '@angular/forms';
 export class RegistrationComponent implements OnInit {
 
   signupForm :FormGroup;
-
+  newLyCreatedUser : Student;
+  
+  constructor( private registerMeService : RegisterService){}
 
 
   ngOnInit() {
@@ -26,7 +28,19 @@ export class RegistrationComponent implements OnInit {
     })
   }
   onSubmit(){
+    console.log(this.signupForm);
+    let newUser : Student = {
+      username : this.signupForm.value.username,
+      password : this.signupForm.value.password,
+      email : this.signupForm.value.email,
+      phone : this.signupForm.value.phone,
+      academicLevel : this.signupForm.value.academicLevel
 
+    }
+    this.registerMeService.createUser(newUser)
+    .subscribe(data=>{
+      this.newLyCreatedUser = data;
+    })
   }
 
 }
