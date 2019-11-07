@@ -5,7 +5,7 @@ import { Observable, Operator } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { AllUsers } from '../../Interfaces/Users/all-users';
-import { NewUser } from '../../Interfaces/Users/new-user';
+import { Student } from '../../Interfaces/Users/new-user';
 
 
 
@@ -16,50 +16,24 @@ export class LoginService {
 
   public loggedIn;
   public username;
-  newuser: NewUser;
-
-  private url = '/assets/server/users2.json';
-  private url2 = 'http://localhost:4000/lia/techgenesis/api/user/signup';
-  private url3 = 'http://localhost:4000/lia/techgenesis/api/users';
-  private Url = 'http://localhost:4000/lia/techgenesis/api';
 
   constructor(private http: HttpClient) {
-    this.loggedIn = JSON.parse(localStorage.getItem('LoggedIn') || 'false');
-    this.username = localStorage.getItem('name');
   }
-  getUsers(): Observable<AllUsers[]> {
-    return this.http.get<AllUsers[]>(this.url);
-  }
+ 
+  // validates a user that wants to logIn to the system
+  validateUser(studentInfo: Student): Observable<Student> {
+    // assigns value gotten from logIn form to user
+    let student : Student = {
+      username: studentInfo.username,
+      password: studentInfo.password
+    }
 
-
-  /**
-   * Adding a new user into the database
-   */
-  createUser(newUser): Observable<NewUser> {
     const headerOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post<NewUser>(this.url2, newUser, headerOptions);
-  }
-
-
-  /**Getting all users in the database
-   */
-  getUsersHandler(): Observable<NewUser[]> {
-    return this.http.get<NewUser[]>(this.url3);
-  }
-
-  // updateUser(): Observable<NewUser> {
-  //   return this.http.put<NewUser>()
-  // }
-
-  /*
-  Deleting a User from the Database
-  */
-  deleteUser(id: any) {
-    return this.http.delete(`${this.Url}/users/${id}`);
+    return this.http.post<Student>('', student, headerOptions);
   }
 
   // Setting User to LogIn state

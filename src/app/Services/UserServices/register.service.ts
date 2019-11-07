@@ -19,6 +19,6 @@ export class RegisterService {
       academicLevel : newUser.academicLevel
 
     }
-    return this.http.post<Student>('',userData);
+    return this.http.post<Student>('https://liachat-2.herokuapp.com/api/user/register',userData);
   }
 }

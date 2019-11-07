@@ -1,10 +1,10 @@
 export interface Student {
-    username: string;
-    password: string;
+    username?: string;
+    password?: string;
     phone?: number;
     email?:string;
     id?: string;
-    academicLevel: string;
+    academicLevel?: string;
 }
 
 export interface Developer{

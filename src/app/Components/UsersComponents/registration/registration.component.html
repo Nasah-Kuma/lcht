@@ -7,7 +7,10 @@
             <input 
             type = "text" 
             placeholder="username"
-            formControlName = "username" required class = "form-control"><br>
+            formControlName = "username" required class = "form-control" 
+            (keypress) = "validateUserName($event)" ><br>
+            <small class = "text-danger" *ngIf = "shortName">Username should be longer than 5 characters</small>
+            <small *ngIf = "longName" class = "text-danger" >Username should be less than 25 characters</small><br>
             <label>Password<span class = "text-danger">*</span></label><br>
             <input 
             type = "password" 
@@ -15,7 +18,7 @@
             formControlName = "password" class = "form-control"><br>
             <label>Contact</label><br>
             <input 
-            type = "text" 
+            type = "number" 
             placeholder="phone" 
             formControlName = "phone" class = "form-control"><br>
             <label>Email</label><br>
@@ -31,6 +34,20 @@
               <option value = "200">200</option>
               <option value = "300">300</option>
             </select><br>
+            <label>Business Category<span class = "text-danger">*</span></label>
+            <select class = "form-control">
+              <option value = "small">Small</option>
+              <option value = "medium">Medium</option>
+              <option value = "large">Large</option>
+            </select>
+            <label>Development Field<span class = "text-danger">*</span></label>
+            <select class = "form-control">
+              <option value = "Front-End">Front-End</option>
+              <option vaue = "Back-End">Back-End</option>
+              <option value = "Full Stack">Full Stack</option>
+              <option value = "Mobile App">Mobile App</option>
+              <option value = "Web">Web</option>
+            </select>
             <button class = "btn btn-secondary form-control">register</button>
           </form>
     </div>

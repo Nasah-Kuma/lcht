@@ -4,6 +4,7 @@ import { LoginService } from 'src/app/Services/UserServices/login.service';
 import { FormGroup, FormControl, FormBuilder} from '@angular/forms';
 import { NgForm} from '@angular/forms';
 import { RegisterService} from '../../../Services/UserServices/register.service';
+import { Validators} from '../../../Components/UtilityComponents/HelperClasses/authValidators';
 
 @Component({
   selector: 'app-registration',
@@ -14,6 +15,8 @@ export class RegistrationComponent implements OnInit {
 
   signupForm :FormGroup;
   newLyCreatedUser : Student;
+  shortName : boolean = false;
+  longName : boolean = false;
   
   constructor( private registerMeService : RegisterService){}
 
@@ -40,7 +43,20 @@ export class RegistrationComponent implements OnInit {
     this.registerMeService.createUser(newUser)
     .subscribe(data=>{
       this.newLyCreatedUser = data;
+      console.log(data);
     })
   }
 
+  // validating user data
+  validateUserName(event){
+  let username = event.target.value;
+  console.log(username); 
+  this.shortName = true;
+  if(new Validators().usernameValidator(username)){
+  this.shortName = false;
+  }
+  else{
+  }
+
+}
 }
