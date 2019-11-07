@@ -3,24 +3,7 @@
 body {
   font-family: 'Nunito Sans', sans-serif;
 }
-
-mat-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100%;
-}
-
-.seperate {
-  padding: 0 25px;
-}
-
-mat-form-field {
-  padding: 0 25px;
-  /* width: 100%; */
-}
-
-.container {
-  padding: 30px 100px;
+.form-container{
+  margin-top:2rem;
+  padding:2rem;
 }

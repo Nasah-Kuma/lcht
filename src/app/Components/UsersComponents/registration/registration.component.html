@@ -1,24 +1,39 @@
-<div class="container">
-  <form [formGroup] = "signUpForm">
-    <input 
-    type = "text" 
-    placeholder="username"
-    formControlName = "username">
-    <input 
-    type = "text" 
-    placeholder="password" 
-    formControlName = "password">
-    <input 
-    type = "text" 
-    placeholder="phone" 
-    formControlName = "phone">
-    <input 
-    type = "text" 
-    placeholder="email" 
-    formControlName = "email">
-    <input 
-    type = "text" 
-    placeholder="academicLevel" 
-    formControlName = "academicLevel">
-  </form>
+<div class="container bg-white form-container">
+  <div class = "row">
+    <div class = "col-sm-3"></div>
+    <div class = "col-sm-6">
+        <form [formGroup] = "signupForm" (ngSubmit) = "onSubmit()" class = "text-center register-form">
+            <label class = "text-capitalize">username<span class = "text-danger">*</span></label><br>
+            <input 
+            type = "text" 
+            placeholder="username"
+            formControlName = "username" required class = "form-control"><br>
+            <label>Password<span class = "text-danger">*</span></label><br>
+            <input 
+            type = "text" 
+            placeholder="password" 
+            formControlName = "password" class = "form-control"><br>
+            <label>Contact</label><br>
+            <input 
+            type = "text" 
+            placeholder="phone" 
+            formControlName = "phone" class = "form-control"><br>
+            <label>Email</label><br>
+            <input 
+            type = "text" 
+            placeholder="email" 
+            formControlName = "email" class="form-control"><br>
+            <label>Academic Level<span class = "text-danger">*</span></label><br>
+            <input 
+            type = "text" 
+            placeholder="academicLevel" 
+            formControlName = "academicLevel" class = "form-control"><br>
+            <button class = "btn btn-secondary form-control">register</button>
+          </form>
+    </div>
+    <div class = "col-sm-3">
+
+    </div>
+  </div>
+  
 </div>

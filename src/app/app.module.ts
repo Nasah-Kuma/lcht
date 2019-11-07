@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { from } from 'rxjs';
 
@@ -40,7 +40,6 @@ const config: SocketIoConfig = { url: 'http://localhost:4000', options: {} };
     SupportModule,
     BasicUtilitiesModule,
     HttpClientModule,
-    ReactiveFormsModule,
     FormsModule
   ],
   providers: [LoginService, AuthenticationGuard],

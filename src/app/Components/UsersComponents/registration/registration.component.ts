@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NewUser } from 'src/app/Interfaces/Users/new-user';
 import { LoginService } from 'src/app/Services/UserServices/login.service';
-import { FormGroup, FormControl} from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder} from '@angular/forms';
+import { NgForm} from '@angular/forms';
 
 
 @Component({
@@ -11,18 +12,21 @@ import { FormGroup, FormControl} from '@angular/forms';
 })
 export class RegistrationComponent implements OnInit {
 
-  signUpForm: FormGroup;
+  signupForm :FormGroup;
 
 
 
   ngOnInit() {
-    this.signUpForm = new FormGroup({
-      'username' : new FormControl(null),
-      'password' : new FormControl(null),
-      'phone' : new FormControl(null),
-      'email' : new FormControl(null),
-      'academicLevel' : new FormControl(null)
+    this.signupForm = new FormGroup({
+      username : new FormControl(null),
+      password : new FormControl(null),
+      phone : new FormControl(null),
+      email : new FormControl(null),
+      academicLevel : new FormControl(null)
     })
+  }
+  onSubmit(){
+
   }
 
 }

@@ -4,16 +4,18 @@ import { HeaderComponent } from '../../Components/SupportComponents/header/heade
 import { MaterialModule } from '../MaterialModule/material.module';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NotificationsComponent } from '../../Components/SupportComponents/notifications/notifications.component';
+import { LandingheaderComponent } from '../../Components/SupportComponents/landingheader/landingheader.component';
 
 @NgModule({
-  declarations: [HeaderComponent, NotificationsComponent],
+  declarations: [HeaderComponent, NotificationsComponent, LandingheaderComponent],
   imports: [
     CommonModule,
     MaterialModule,
     AppRoutingModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    LandingheaderComponent
   ]
 })
 export class SupportModule { }

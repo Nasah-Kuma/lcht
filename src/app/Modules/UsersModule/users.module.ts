@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MaterialModule } from '../MaterialModule/material.module';
 import { LoginComponent } from '../../Components/UsersComponents/login/login.component';
@@ -11,7 +11,8 @@ import { RegistrationComponent } from '../../Components/UsersComponents/registra
   imports: [
     CommonModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     LoginComponent, RegistrationComponent

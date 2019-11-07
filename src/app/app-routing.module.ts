@@ -63,7 +63,7 @@ const routes: Routes = [
     component: CallsComponent
   },
   {
-    path: 'signUp',
+    path: 'register',
     component: RegistrationComponent
   }
 ];
