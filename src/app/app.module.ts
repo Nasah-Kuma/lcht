@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { from } from 'rxjs';
@@ -19,6 +19,7 @@ import { SupportModule } from './Modules/SupportModule/support.module';
 import { InfoComponent } from './info/info.component';
 import { AuthenticationGuard } from './Guards/authentication.guard';
 import { BasicUtilitiesModule } from './Modules/UtilitiesModule/basic-utilities/basic-utilities.module';
+import { AuthInterceptor } from './Services/UserServices/auth.interceptor';
 
 
 const config: SocketIoConfig = { url: 'http://localhost:4000', options: {} };
@@ -42,7 +43,15 @@ const config: SocketIoConfig = { url: 'http://localhost:4000', options: {} };
     HttpClientModule,
     FormsModule
   ],
-  providers: [LoginService, AuthenticationGuard],
+  providers: [
+    LoginService, 
+    AuthenticationGuard,
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthInterceptor,
+      multi:true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

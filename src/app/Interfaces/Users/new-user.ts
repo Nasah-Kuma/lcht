@@ -5,6 +5,7 @@ export interface Student {
     email?:string;
     id?: string;
     academicLevel?: string;
+    token?: string;
 }
 
 export interface Developer{

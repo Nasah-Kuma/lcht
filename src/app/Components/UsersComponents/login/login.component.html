@@ -13,11 +13,11 @@
   </mat-form-field><br><br>
 
   <mat-form-field>
-    <mat-label>Password5</mat-label>
+    <mat-label>Password</mat-label>
     <input matInput type="password" required>
   </mat-form-field><br><br>
   <mat-spinner *ngIf="loading"></mat-spinner>
-  <button id="next" mat-raised-button color="primary" disabled=true>Login</button>
+  <button id="next" mat-raised-button color="primary" (click) = "onSubmit()">Login</button>
   <mat-divider color="primary"></mat-divider>
   <!-- <a [routerLink]="['/signUp']" routerLinkActive="router-link-active" id="signUp" mat-flat-button disabled=false>Create
     new user account?</a> -->

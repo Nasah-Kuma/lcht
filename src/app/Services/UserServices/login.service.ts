@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { 
+  HttpClient, 
+  HttpHeaders
+} from '@angular/common/http';
 
 import { Observable, Operator } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -33,7 +36,7 @@ export class LoginService {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post<Student>('', student, headerOptions);
+    return this.http.post<Student>('https://liachat-2.herokuapp.com/api/user/login', student, headerOptions);
   }
 
   // Setting User to LogIn state

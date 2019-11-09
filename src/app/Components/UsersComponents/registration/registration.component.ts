@@ -5,6 +5,7 @@ import { FormGroup, FormControl, FormBuilder} from '@angular/forms';
 import { NgForm} from '@angular/forms';
 import { RegisterService} from '../../../Services/UserServices/register.service';
 import { Validators} from '../../../Components/UtilityComponents/HelperClasses/authValidators';
+import { tokenName } from '@angular/compiler';
 
 @Component({
   selector: 'app-registration',
@@ -43,6 +44,9 @@ export class RegistrationComponent implements OnInit {
     this.registerMeService.createUser(newUser)
     .subscribe(data=>{
       this.newLyCreatedUser = data;
+      let token = data.token;
+      localStorage.setItem("token",token);
+      console.log(token);
       console.log(data);
     })
   }
