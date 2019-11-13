@@ -4,7 +4,7 @@ import { $$ } from 'protractor';
 
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/Services/UserServices/login.service';
-import { Student } from '../../../Interfaces/Users/new-user';
+import { User } from '../../../Interfaces/Users/new-user';
 
 
 
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   private users = [];
   public loading = false;
-  private userLoggedIn : Student;
+  private userLoggedIn : User;
 
   constructor(private isLogged: LoginService, private route: Router) { }
 
@@ -64,13 +64,13 @@ export class LoginComponent implements OnInit {
   onSubmit(){
     const username:any = $('input:text').val();
     const password:any = $('input:password').val();
-    let studentDetails: Student = {
+    let userDetails: User = {
       username,
       password
     }
 
    
-    this.isLogged.validateUser( studentDetails)
+    this.isLogged.validateUser( userDetails)
     .subscribe(data=>{
         this.userLoggedIn = data;
         console.log(this.userLoggedIn);

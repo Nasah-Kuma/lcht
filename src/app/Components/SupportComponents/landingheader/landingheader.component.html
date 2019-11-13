@@ -5,7 +5,17 @@
         </div>
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
-            <a class = "btn btn-primary" [routerLink] = "['/register']">Create A New Account</a>
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Create New Account
+                </button>
+                <select (click) = "giveCategory($event)">
+                    <option *ngFor = "let Category of category" value = "{{Category}}">
+                        {{Category}}
+                    </option>
+                </select>
+                        <app-registration [formCategory] = "selectedCategory"></app-registration>
+                </div>
+            </div>
         </div>
     </div>
-</div>

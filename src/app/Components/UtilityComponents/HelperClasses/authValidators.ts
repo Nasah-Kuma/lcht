@@ -1,6 +1,6 @@
 import { UserInputLength } from './userInputLengths';
 
-export class Validators{
+export class Validator{
     usernameValidator(username:string):boolean
     {
         if(username.length<UserInputLength.MIN_USERNAME_LENGTH){

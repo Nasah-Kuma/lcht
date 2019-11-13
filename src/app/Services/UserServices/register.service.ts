@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Student, Developer, BusinessMan } from '../../Interfaces/Users/new-user';
+import { User } from '../../Interfaces/Users/new-user';
 
 @Injectable({
   providedIn: 'root'
@@ -9,16 +9,16 @@ export class RegisterService {
 
   constructor( private http: HttpClient) { }
 
-  //adds a new user 
-  createUser(newUser:Student){
-    let userData : Student = {
-      username : newUser.username,
-      password : newUser.password,
-      phone : newUser.phone,
-      email : newUser.email,
-      academicLevel : newUser.academicLevel
+  //adds a new student 
+  createStudent(newStudent:User){
+    let studentData : User = {
+      username : newStudent.username,
+      password : newStudent.password,
+      phone : newStudent.phone,
+      email : newStudent.email,
+      academicLevel : newStudent.academicLevel
 
     }
-    return this.http.post<Student>('https://liachat-2.herokuapp.com/api/user/register',userData);
+    return this.http.post<User>('https://liachat-2.herokuapp.com/api/user/register',studentData);
   }
 }

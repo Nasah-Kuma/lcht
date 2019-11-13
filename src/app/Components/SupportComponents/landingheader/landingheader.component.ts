@@ -8,9 +8,16 @@ import { Router} from '@angular/router';
 })
 export class LandingheaderComponent implements OnInit {
 
+  public category : ['student', 'developer', 'businessman'];
+  public selectedCategory : any;
+
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  giveCategory(event){
+    this.selectedCategory = event.target.value;
+  }
 }

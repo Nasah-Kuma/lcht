@@ -8,7 +8,7 @@ import { Observable, Operator } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { AllUsers } from '../../Interfaces/Users/all-users';
-import { Student } from '../../Interfaces/Users/new-user';
+import { User } from '../../Interfaces/Users/new-user';
 
 
 
@@ -24,11 +24,11 @@ export class LoginService {
   }
  
   // validates a user that wants to logIn to the system
-  validateUser(studentInfo: Student): Observable<Student> {
+  validateUser(userInfo: User): Observable<User> {
     // assigns value gotten from logIn form to user
-    let student : Student = {
-      username: studentInfo.username,
-      password: studentInfo.password
+    let user : User = {
+      username: userInfo.username,
+      password: userInfo.password
     }
 
     const headerOptions = {
@@ -36,7 +36,7 @@ export class LoginService {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.post<Student>('https://liachat-2.herokuapp.com/api/user/login', student, headerOptions);
+    return this.http.post<User>('https://liachat-2.herokuapp.com/api/user/login', user, headerOptions);
   }
 
   // Setting User to LogIn state
