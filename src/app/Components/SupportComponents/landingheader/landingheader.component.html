@@ -1,21 +1,19 @@
 <div class = "container-fluid">
     <div class="row bg-info">
-        <div class="col-sm-4">
-            Liachat
-        </div>
+        <div class="col-sm-4">Liachat</div>
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
-            <div class="dropdown">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                    Create New Account
-                </button>
-                <select (click) = "giveCategory($event)">
-                    <option *ngFor = "let Category of category" value = "{{Category}}">
-                        {{Category}}
-                    </option>
-                </select>
-                        <app-registration [formCategory] = "selectedCategory"></app-registration>
+                ​<div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                          Register As
+                        </button>
+                        <div class="dropdown-menu" >
+                          <a class="dropdown-item" [routerLink] = "['/register']" 
+                          *ngFor = "let category of userCategory">
+                              {{category}}</a>
+                        </div>
                 </div>
-            </div>
+                <app-registration [formCategory] = "selectedCategory"></app-registration>
         </div>
     </div>
+</div>
