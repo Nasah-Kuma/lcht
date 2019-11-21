@@ -9,7 +9,7 @@ import { Router} from '@angular/router';
 export class LandingheaderComponent implements OnInit {
 
   public userCategory = ['student', 'developer', 'businessman'];
-  public selectedCategory : any;
+  public selectedCategory:any;
 
 
   constructor() { }
@@ -17,7 +17,11 @@ export class LandingheaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  giveCategory(event){
-    this.selectedCategory = event.target.value;
+  onClickCategory(e){
+    e.preventDefault();
+    this.selectedCategory = e.target.textContent;
+    console.log(e);
+    
+    localStorage.setItem("chosenCategory", JSON.stringify(this.selectedCategory));
   }
 }

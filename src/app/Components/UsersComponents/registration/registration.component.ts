@@ -15,7 +15,7 @@ import { UserInputLength } from '../../UtilityComponents/HelperClasses/userInput
 })
 export class RegistrationComponent implements OnInit {
 
-  @Input() public formCategory : any;
+  public userCategory : any;
   
   signupForm :FormGroup;
   newLyCreatedStudent : User;
@@ -35,6 +35,7 @@ export class RegistrationComponent implements OnInit {
       businessCategory : new FormControl(null),
       developmentField : new FormControl(null)
     })
+    this.userCategory = JSON.parse(localStorage.getItem("chosenCategory"));
   }
 
   onSubmit(){

@@ -8,12 +8,12 @@
                           Register As
                         </button>
                         <div class="dropdown-menu" >
-                          <a class="dropdown-item" [routerLink] = "['/register']" 
-                          *ngFor = "let category of userCategory">
+                          <a class="dropdown-item" [routerLink] = "['/register']"
+                          *ngFor = "let category of userCategory" (click) = "onClickCategory($event)">
                               {{category}}</a>
                         </div>
                 </div>
-                <app-registration [formCategory] = "selectedCategory"></app-registration>
+                <!-- <app-registration [userCategory] = "selectedCategory"></app-registration>  -->
         </div>
     </div>
 </div>
