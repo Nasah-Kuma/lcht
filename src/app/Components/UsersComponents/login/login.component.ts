@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     //           this.loading = false;
     //           this.isLogged.setUserLogin(this.users[i].username);
     //           this.isLogged.username = this.users[i].username;
-    //           this.route.navigate(['/chat']);
+    //          
     //         }, 1000);
 
     //         return;
@@ -76,4 +76,10 @@ export class LoginComponent implements OnInit {
         console.log(this.userLoggedIn);
     })
   }
+
+
+  openReg(){
+    this.route.navigate(['/register']);
+  }
+
 }

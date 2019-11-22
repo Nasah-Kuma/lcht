@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Router} from '@angular/router';
 
 @Component({
@@ -10,6 +10,7 @@ export class LandingheaderComponent implements OnInit {
 
   public userCategory = ['student', 'developer', 'businessman'];
   public selectedCategory:any;
+  @Output() public categoryEvent = new EventEmitter();
 
 
   constructor() { }
@@ -18,10 +19,9 @@ export class LandingheaderComponent implements OnInit {
   }
 
   onClickCategory(e){
-    e.preventDefault();
-    this.selectedCategory = e.target.textContent;
+    this.categoryEvent.emit(e.target.textContent);
     console.log(e);
     
-    localStorage.setItem("chosenCategory", JSON.stringify(this.selectedCategory));
+    // localStorage.setItem("chosenCategory", JSON.stringify(this.selectedCategory));
   }
 }

@@ -5,6 +5,13 @@
   </marquee>
   <!-- <mat-divider></mat-divider> -->
   <h1 id="LoginHead">Please Enter User Details</h1><br>
+
+  <h1 id="LoginHead">
+    Please click 
+    to register
+  </h1>
+  <br>
+  
   <mat-divider></mat-divider>
 
   <mat-form-field>
@@ -18,7 +25,9 @@
   </mat-form-field><br><br>
   <mat-spinner *ngIf="loading"></mat-spinner>
   <button id="next" mat-raised-button color="primary" (click) = "onSubmit()">Login</button>
+  <button id="next" mat-raised-button color="primary" (click) = "openReg()">Register</button>
   <mat-divider color="primary"></mat-divider>
   <!-- <a [routerLink]="['/signUp']" routerLinkActive="router-link-active" id="signUp" mat-flat-button disabled=false>Create
     new user account?</a> -->
 </div>
+
