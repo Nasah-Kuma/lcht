@@ -7,6 +7,7 @@ import { RegisterService } from '../../../Services/UserServices/register.service
 // import { Validator} from '../../../Components/UtilityComponents/HelperClasses/authValidators';
 import { tokenName } from '@angular/compiler';
 import { UserInputLength } from '../../UtilityComponents/HelperClasses/userInputLengths';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -27,7 +28,7 @@ export class RegistrationComponent implements OnInit {
   Developer: boolean = false;
   BusinessMan: boolean = false;
 
-  constructor(private registerMeService: RegisterService) { }
+  constructor(private registerMeService: RegisterService, private router: Router) { }
 
   ngOnInit() {
     this.signupForm = new FormGroup({
@@ -100,9 +101,16 @@ export class RegistrationComponent implements OnInit {
       .subscribe(data => {
         this.newLyCreatedStudent = data;
         let token = data.token;
-        localStorage.setItem("token", token);
+        if(token){
+          localStorage.setItem("token", JSON.stringify(token));
+          const registeredUser = data.registeredStudent[0].username;
+          localStorage.setItem("username", JSON.stringify(registeredUser));
+          this.router.navigate(['/welcomeUser']) ;
+        }
+        
         console.log(token);
         console.log(data);
+        console.log(data.registeredStudent[0].username);
       })
   }
 
