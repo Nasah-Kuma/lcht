@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  // gets registration form
   openReg(){
     this.route.navigate(['/register']);
   }

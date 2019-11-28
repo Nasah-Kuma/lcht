@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
       this.logOutService.setUserLogOut()
       .subscribe(loggedStatus => {
         console.log(loggedStatus);
-        this.router.navigate(['/login'])
+        this.router.navigate(['/login']);
       })
     }
     console.log(logout);

@@ -47,20 +47,23 @@ input {
   font-family: monospace;
 }
 
-#next {
+#login {
   margin-bottom: 6%;
-  margin-right: 10%;
-  align-self: flex-end;
-  padding: 5px 30px;
+  padding: 3px 20px;
 }
 
 #signUp {
   /* margin-bottom: 10%; */
-  margin-left: 10%;
+  margin-left: 50%;
   display: inline;
   padding: 5px 30px;
 }
 
 h1 {
   color: white;
+}
+
+#regLink:hover{
+  cursor: pointer;
+  color: wheat;
 }

@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Nunito Sans', sans-serif;
+  overflow: scroll;
 }
 .form-container{
   margin-top:2rem;

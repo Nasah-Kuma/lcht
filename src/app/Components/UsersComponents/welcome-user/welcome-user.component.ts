@@ -11,6 +11,7 @@ export class WelcomeUserComponent implements OnInit {
   public token: any;
   constructor() { }
 
+  // stores token of authenticated user on component init
   ngOnInit() {
     this.token = JSON.parse(localStorage.getItem('token'));
     this.registeredUser = JSON.parse(localStorage.getItem('username'));
