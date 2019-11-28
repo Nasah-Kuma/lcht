@@ -1,5 +1,6 @@
 <!-- <app-navigation></app-navigation> -->
-<div class="container">
+<div class="loginPage">
+    <div class="container">
         <marquee behavior="left" direction="right">
             <h1 id="CompanyName">LETS_INTERACT -- NETWORKING USERS WORLDWIDE</h1>
           </marquee>
@@ -20,7 +21,8 @@
           <mat-spinner *ngIf="loading"></mat-spinner>
           <button id = "login" mat-raised-button color="primary" (click) = "onSubmit()">Login</button>
           <mat-divider color="primary"></mat-divider>
-          <h5 class ="text-warning">Don't yet have an account?&nbsp;<a (click) = "openReg()" 
-            id = "regLink">Register</a></h5>
+        </div>
+        <h5 class ="text-warning accountPrompt">Don't yet have an account?&nbsp;<a (click) = "openReg()" 
+          id = "regLink">Register</a></h5>
 </div>
 

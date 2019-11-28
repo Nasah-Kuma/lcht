@@ -52,13 +52,6 @@ input {
   padding: 3px 20px;
 }
 
-#signUp {
-  /* margin-bottom: 10%; */
-  margin-left: 50%;
-  display: inline;
-  padding: 5px 30px;
-}
-
 h1 {
   color: white;
 }
@@ -66,4 +59,111 @@ h1 {
 #regLink:hover{
   cursor: pointer;
   color: wheat;
+}
+
+.accountPrompt{
+  text-align: center ;
+}
+
+/* for other screen sizes */
+
+/* pixel 2 screen */
+@media screen and (width:411px){
+  #LoginHead {
+    color: accent;
+    font-family: monospace;
+    font-size: 3rem;
+  }
+  .container{
+    margin-top: 15%;
+    margin-bottom: 10%;
+  }
+  
+}
+
+/* iphone 5/SE screen */
+@media screen and ( width:320px){
+  #LoginHead {
+    font-size: 1.7rem;
+  }
+  #CompanyName {
+    font-size: 2rem;
+  }
+}
+
+/* iphone 6/7/8 */
+@media screen and (width : 375px){
+  #LoginHead {
+    font-size: 2rem;
+  }
+  .loginPage{
+    margin-top: 5%;
+  }
+}
+
+/* iphone 6/7/8plus */
+@media screen and (width : 414px){
+  #LoginHead {
+    font-size: 2.1rem;
+  }
+  .container{
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+}
+
+/*  iphoneX */
+@media screen and (width : 375px){
+  .container{
+    margin-top: 20%;
+    margin-bottom: 20%;
+  }
+}
+
+/* ipad */
+@media screen and (width : 768px){
+  mat-label {
+    font-size: 2rem;
+  }
+  #login {
+    padding: 5px 30px;
+  }
+  #LoginHead {
+    font-size: 2.3rem;
+  }
+  .container{
+    margin-top: 15%;
+    margin-bottom: 15%;
+  }
+  #CompanyName {
+    font-size: 4rem;
+  }
+  .accountPrompt{
+    font-size: 2rem;
+  }
+}
+
+/* ipadPro */
+@media screen and (width : 1024px){
+  mat-label {
+    font-size: 2.2rem;
+  }
+  #login {
+    padding: 5px 50px;
+    font-size: 20px;
+  }
+  #LoginHead {
+    font-size: 3rem;
+    padding-top: 2rem;
+  }
+  .container{
+    margin-top: 15%;
+    margin-bottom: 10%;
+  }
+  #CompanyName {
+    font-size: 4rem;
+  }
+  .accountPrompt{
+    font-size: 2.5rem;
+  }
 }
