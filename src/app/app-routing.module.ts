@@ -9,6 +9,7 @@ import { StatusComponent } from './status/status.component';
 import { ChatroomComponent } from './Components/ChatComponents/chatroom/chatroom.component';
 import { LoginComponent } from './Components/UsersComponents/login/login.component';
 import { RegistrationComponent } from './Components/UsersComponents/registration/registration.component';
+import { WelcomeUserComponent } from './Components/UsersComponents/welcome-user/welcome-user.component';
 import { GroupchatsComponent } from './Components/ChatComponents/groupchats/groupchats.component';
 import { PrivatechatsComponent } from './Components/ChatComponents/privatechats/privatechats.component';
 import { NotificationsComponent } from './Components/SupportComponents/notifications/notifications.component';
@@ -28,43 +29,49 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: 'chat',
-    canActivate: [AuthenticationGuard],
-    component: ChatroomComponent
-  },
-  {
-    path: 'groups',
-    canActivate: [AuthenticationGuard],
-    component: GroupchatsComponent
-  },
-  {
-    path: 'privateChats',
-    canActivate: [AuthenticationGuard],
-    component: PrivatechatsComponent
-  },
-  {
-    path: 'notifications',
-    canActivate: [AuthenticationGuard],
-    component: NotificationsComponent
-  },
-  {
-    path: 'status',
-    canActivate: [AuthenticationGuard],
-    component: StatusComponent
-  },
-  {
-    path: 'info',
-    canActivate: [AuthenticationGuard],
-    component: InfoComponent
-  },
-  {
-    path: 'calls',
-    canActivate: [AuthenticationGuard],
-    component: CallsComponent
-  },
-  {
     path: 'register',
     component: RegistrationComponent
+  },
+  {
+    path: 'welcomeUser',
+    component: WelcomeUserComponent,
+    children: [
+      {
+        path: 'chat',
+        canActivate: [AuthenticationGuard],
+        component: ChatroomComponent
+      },
+      {
+        path: 'groups',
+        canActivate: [AuthenticationGuard],
+        component: GroupchatsComponent
+      },
+      {
+        path: 'privateChats',
+        canActivate: [AuthenticationGuard],
+        component: PrivatechatsComponent
+      },
+      {
+        path: 'notifications',
+        canActivate: [AuthenticationGuard],
+        component: NotificationsComponent
+      },
+      {
+        path: 'status',
+        canActivate: [AuthenticationGuard],
+        component: StatusComponent
+      },
+      {
+        path: 'info',
+        canActivate: [AuthenticationGuard],
+        component: InfoComponent
+      },
+      {
+        path: 'calls',
+        canActivate: [AuthenticationGuard],
+        component: CallsComponent
+      }
+    ]
   }
 ];
 

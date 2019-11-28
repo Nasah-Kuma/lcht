@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../../../Services/UserServices/login.service';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   public searchSpace: boolean = false;
+  @Input() public newUser;
   tabLinks = [
     {
       path: 'chat',
@@ -31,7 +33,7 @@ export class HeaderComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private logOutService: LoginService) { }
 
   chat() {
     this.router.navigate['chat'];
@@ -50,5 +52,18 @@ export class HeaderComponent implements OnInit {
   }
   closeSearchBar() {
     return this.searchSpace = false;
+  }
+
+  // function that logs user out
+  logOut(){
+    let logout = confirm("Are you sure you want to logout?");
+    if(logout){
+      this.logOutService.setUserLogOut()
+      .subscribe(loggedStatus => {
+        console.log(loggedStatus);
+        this.router.navigate(['/login'])
+      })
+    }
+    console.log(logout);
   }
 }

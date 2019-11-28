@@ -22,7 +22,7 @@ import { BasicUtilitiesModule } from './Modules/UtilitiesModule/basic-utilities/
 import { AuthInterceptor } from './Services/UserServices/auth.interceptor';
 
 
-const config: SocketIoConfig = { url: 'http://localhost:4000', options: {} };
+// const config: SocketIoConfig = { url: 'http://localhost:4000', options: {} };
 
 @NgModule({
   declarations: [
@@ -34,7 +34,6 @@ const config: SocketIoConfig = { url: 'http://localhost:4000', options: {} };
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SocketIoModule.forRoot(config),
     MaterialModule,
     UsersModule,
     ChatModule,

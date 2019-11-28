@@ -28,6 +28,7 @@
   <mat-toolbar color="primary" class="pt-4">
     <mat-toolbar-row class="d-flex justify-content-around align-items-center">
       <div class="brandBar">
+        <span>{{newUser}}</span><br>
         <span class="text-uppercase" color="accent">Liachat</span>
       </div>
       <span (click)="showSearchSpace()">
@@ -68,6 +69,8 @@
         </a>
 
       </mat-menu>
+
+      <button id="next" mat-raised-button color="secondary" (click) = "logOut()">LogOut</button>
     </mat-toolbar-row>
 
 

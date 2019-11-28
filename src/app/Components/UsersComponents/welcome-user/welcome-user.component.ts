@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class WelcomeUserComponent implements OnInit {
 
-  @Input() public registeredUser: any;
+  public registeredUser: any;
   public token: any;
   constructor() { }
 

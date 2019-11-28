@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
+// import { Socket } from 'ngx-socket-io';
 import { from } from 'rxjs';
 import * as $ from 'jquery';
 import { LoginService } from './Services/UserServices/login.service';
@@ -12,10 +12,11 @@ import { LoginService } from './Services/UserServices/login.service';
 export class AppComponent implements OnInit {
 
   showHeader: boolean;
-
-  constructor(private socket: Socket, private login: LoginService) {
+  // displayHeader = JSON.parse(localStorage.getItem('username'));
+  constructor(private login: LoginService) {
   }
   ngOnInit() {
     this.showHeader = this.login.getUserIsLogged();
+
   }
 }

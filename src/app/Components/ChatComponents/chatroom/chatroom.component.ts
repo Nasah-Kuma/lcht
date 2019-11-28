@@ -29,7 +29,7 @@ export class ChatroomComponent implements OnInit {
     this.showSpinner = true;
     setTimeout(() => {
       this.showSpinner = false;
-      this.loginService.setUserLogOut();
+      // this.loginService.setUserLogOut();
       this.router.navigate(['/login']);
     }, 1000);
   }

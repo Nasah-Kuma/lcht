@@ -111,16 +111,8 @@ export class RegistrationComponent implements OnInit {
         console.log(token);
         console.log(data);
         console.log(data.registeredStudent[0].username);
-      })
+      }, (error) => {
+        console.log('An error occured: ', error);
+      });
   }
-
-  //   get userName(){
-  //     return this.signupForm.get('username');
-  //   }
-  //   get pwd(){
-  //     return this.signupForm.get('password');
-  //   }
-  //   get emailAddress(){
-  //     return this.signupForm.get('email');
-  //   }
 }

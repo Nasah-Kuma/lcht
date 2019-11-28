@@ -4,8 +4,8 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 
-import { Observable, Operator } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, Operator, throwError } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 import { AllUsers } from '../../Interfaces/Users/all-users';
 import { User } from '../../Interfaces/Users/new-user';
@@ -19,10 +19,19 @@ export class LoginService {
 
   public loggedIn;
   public username;
+  errorData: {};
 
   constructor(private http: HttpClient) {
   }
+  
  
+     headerOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+
+  redirectUrl: string;
   // validates a user that wants to logIn to the system
   validateUser(userInfo: User): Observable<User> {
     // assigns value gotten from logIn form to user
@@ -31,12 +40,7 @@ export class LoginService {
       password: userInfo.password
     }
 
-    const headerOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json'
-      })
-    };
-    return this.http.post<User>('https://liachat-2.herokuapp.com/api/user/login', user, headerOptions);
+    return this.http.post<User>('https://liachat-2.herokuapp.com/api/user/login', user, this.headerOptions);
   }
 
   // Setting User to LogIn state
@@ -48,8 +52,7 @@ export class LoginService {
 
   // Setting User to Logout state
   setUserLogOut() {
-    this.loggedIn = false;
-    localStorage.clear();
+    return this.http.post< any >('https://liachat-2.herokuapp.com/api/user/logOut', this.headerOptions);
   }
 
   // Verifying if user is logged in

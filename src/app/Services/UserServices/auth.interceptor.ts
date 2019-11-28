@@ -6,7 +6,7 @@ import { User } from 'src/app/Interfaces/Users/new-user';
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor{
     intercept(req:HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>>{
-        const idToken = localStorage.getItem("token");
+        const idToken = JSON.parse(localStorage.getItem("token"));
 
         if(idToken){
             const newRequest = req.clone({
